@@ -31,8 +31,8 @@ class Product(models.Model):
 	price = models.FloatField(null=False)
 	stock = models.IntegerField(null = False, default = 1)
 	availability = models.BooleanField(null = False, default= True)
-	created = models.DateTimeField(default=datetime.now())
-	updated = models.DateTimeField(default=datetime.now())
+	created = models.DateTimeField(default=datetime.now)
+	updated = models.DateTimeField(default=datetime.now)
 
 	def __str__(self):  # For Python 2, use __unicode__ too
 		return self.title

@@ -11,7 +11,7 @@ class Category(models.Model):
 	catSlug = models.SlugField(null=False,unique=True)
 
 	def save(self, *args, **kwargs):
-		self.slug = slugify(self.catName)
+		self.catSlug = slugify(self.catName)
 		super(Category, self).save(*args, **kwargs)
 
 	class Meta:

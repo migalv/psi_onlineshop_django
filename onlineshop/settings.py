@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [u'calm-dusk-79670.herokuapp.com', 'localhost']
 
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticHeroku')
 
 # Application definition
 

@@ -25,7 +25,7 @@ SECRET_KEY = '&g@r$9!9ru&-groxx+*2ae#i7(h319#y!u^*!ws+ujewbokqlj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'calm-dusk-79670.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = [u'calm-dusk-79670.herokuapp.com', u'127.0.0.1']
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticHeroku')

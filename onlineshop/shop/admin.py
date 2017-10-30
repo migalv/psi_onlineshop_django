@@ -11,3 +11,9 @@ class CategoryAdmin(admin.ModelAdmin):
 	prepopulated_fields = {'catSlug':('catName',)}
 
 admin.site.register(Category, CategoryAdmin)
+
+class ProductAdmin(admin.ModelAdmin):
+	prepopulated_fields = {'prodSlug':('prodName',)}
+	list_display = ('prodName', 'prodSlug', 'price', 'stock', 'availability', 'created', 'updated')
+
+admin.site.register(Product, ProductAdmin)

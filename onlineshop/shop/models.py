@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from datetime import datetime
+from django.template.defaultfilters import slugify
 
 # Create your models here.
 class Category(models.Model):
@@ -10,22 +11,22 @@ class Category(models.Model):
 	catSlug = models.SlugField(null=False,unique=True)
 
 	def save(self, *args, **kwargs):
-		self.slug = slugify(self.name)
+		self.slug = slugify(self.catName)
 		super(Category, self).save(*args, **kwargs)
 
 	class Meta:
 		verbose_name_plural = 'Categories'
 
 	def __str__(self):  # For Python 2, use __unicode__ too
-		return self.name
+		return self.catName
 
 	def __unicode__(self):
-		return self.name
+		return self.catName
 
 class Product(models.Model):
 	category = models.ForeignKey(Category, null = False)
-	proName = models.CharField( unique=True, null=False,max_length=128)
-	proSlug = models.SlugField(null=False,unique=True)
+	prodName = models.CharField( unique=True, null=False,max_length=128)
+	prodSlug = models.SlugField(null=False,unique=True)
 	image = models.ImageField(upload_to='images/products', null = False)
 	description = models.CharField(null=False,max_length=128)
 	price = models.FloatField(null=False)
@@ -35,7 +36,7 @@ class Product(models.Model):
 	updated = models.DateTimeField(default=datetime.now)
 
 	def __str__(self):  # For Python 2, use __unicode__ too
-		return self.title
+		return self.prodName
 
 	def __unicode__(self):
-		return self.title
+		return self.prodName

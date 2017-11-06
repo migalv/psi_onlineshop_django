@@ -28,6 +28,24 @@ def populate():
 	      "price":28.50,
 	      "stock":35,
 	      "availability":True,},
+	      {"prodName": "Planeta Hulk. Integral (Marvel Deluxe)",
+	      "image_name":"planeta_hulk.jpg",
+	      "descrip":"Greg Pak, Carlo Pagulayan, Aaron Lopresti, Gary Frank. . ¡La más espectacular aventura jamás protagonizada por el Goliat Verde, recopilada en un único y aplastante volumen! ¡Llega 'Planeta Hulk'! Un planeta aliení­gena salvaje. Tribus bárbaras oprimidas. Un emperador corrupto. Mortí­feros guerreros. Gladiadores y esclavos. Hachas de batalla y puños golpeadores. Monstruos y héroes. El cóctel explosivo se culmina con la llegada de un Hulk que ha sido traicionado por sus amigos y está muy, muy enfadado. ¡Que comience la batalla!",
+	      "price":33.20,
+	      "stock":16,
+	      "availability":True,},
+	      {"prodName": "The Legend Of Zelda. Hyrule Historia",
+	      "image_name":"legend_zelda.jpg",
+	      "descrip":"Este espléndido volumen incluye información exclusiva y nunca vista hasta ahora, como la cronología oficial de la saga, arte conceptual, diseños de personajes y bocetos descartados explicados al detalle por los propios diseñadores y creadores de los juegos, así como una reveladora introducción de mano del propio Shigeru Miyamoto. Y como extra, un manga muy especial: ¡la adaptación oficial Akira Himekawa del videojuego The Legend of Zelda: Skyward Sword !",
+	      "price":28.45,
+	      "stock":48,
+	      "availability":True,},
+	      {"prodName": "Civil War (Marvel Deluxe)",
+	      "image_name":"civil_war.jpg",
+	      "descrip":"Mark Millar, Steve Mcniven. . ¡El mayor evento de la historia del cómic, al fin recopilado en un volumen imprescindible y plagado de extras! El Universo Marvel está cambiando. Es tiempo de elegir: ¿De qué lado estás? Un conflicto que se ha estado larvado durante años estalla al fin, rompiendo en dos a la comunidad superheroica, y enfrentando a amigo contra amigo, hermano contra hermano. Spiderman, Los Vengadores, La Patrulla-X, Los Cuatro Fantásticos... todos se verán afectados. Todos deberán elegir su lugar en la guerra. Nadie está a salvo en la saga que cambió para siempre las reglas del juego.",
+	      "price":22.75,
+	      "stock":95,
+	      "availability":True,},
 	     {"prodName": "Pokémon 17. Diamante y Perla 1",
 	      "image_name":"Pokemon17.jpg",
 	      "descrip":"No",
@@ -48,6 +66,24 @@ def populate():
 	      "price":20.80,
 	      "stock":73,
 	      "availability":False,},
+	      {"prodName": "Y POR QUÉ NO: Del gimnasio a la Titan Desert",
+	      "image_name":"gimnasio_titan.jpg",
+	      "descrip":"No esperes. Que no hay tiempo. Esto va en serio. La vida son dos putos días y uno ya ha pasado. En este libro se cuenta la apuesta por vivir intensamente, por sentir pasión por lo que se está haciendo, de Abel Rodríguez, una persona normal que un buen día decide afrontar una de las pruebas de mountain bike más duras del mundo, la Titan Desert, sin tener pasado deportista de nivel importante ni tener la más remota idea de cómo encararlo. En él nos relata paso a paso todo el recorrido a través de los duros meses de preparación pero sin intención de adoctrinar ni nada por el estilo, nos lo muestra de forma clara y directa, incluso se diría que áspera, pero quizá por eso nos llegue de forma tan contundente su aventura.",
+	      "price":14.82,
+	      "stock":54,
+	      "availability":True,},
+	      {"prodName": "Ciclismo y rendimiento",
+	      "image_name":"ciclismo_rendimiento.jpg",
+	      "descrip":"Ciclismo y rendimiento es una didáctica guía de entrenamiento para cualquier ciclista que desee mejorar su nivel de condición física, ya sea de cara a la competición o al cicloturismo. La finalidad de esta guía es que el ciclista sea capaz de diseñar su propio plan de entrenamiento siguiendo las directrices que en ella se muestran. Dado que el rendimiento deportivo no solo se basa en entrenar, se incluyen también capítulos sobre aquellos aspectos que deben tenerse en cuenta para mejorar la condición física: nutrición y ayudas ergogénicas, biomecánica y fisiología básica del ejercicio. ",
+	      "price":14.25,
+	      "stock":32,
+	      "availability":True,},
+	      {"prodName": "Verdad Sobre El Reiki, La (Filosofia Oriental)",
+	      "image_name":"reiki.jpg",
+	      "descrip":"Este libro es un intento de esclarecer la parte histórica y muchos mitos que se han venido explicando sobre el Reiki. También trata de agrupar todas las ideas y enseñanzas de los diferentes estilos de Reiki en los que ha sido instruido su autor, Joan Piquer. Existen muchos estilos de Reiki pero todos comparten la misma raiz: Usui Sensei. En la actualidad el 99% de los estilos de Reiki provienen de la rama de Hawayo Takata quien aprendió de Hayashi Sensei. En los años de 1980 se extendió por Occidente y recibió la influencia cultural occidental, primero por su paso y expansión por Estados Unidos y, luego, por Europa. ",
+	      "price":19.00,
+	      "stock":25,
+	      "availability":True,},
 	      {"prodName": "Runners superacion deportiva ",
 	      "image_name":"runners.jpg",
 	      "descrip":"El running no es una disciplina que involucre solamente las pistas o competencias, son muchos los aspectos que se deben considerar para ser verdaderamente exitosos en este deporte. A continuación desarrollaremos diferentes tópicos que buscan brindarte las herramientas para que seas exitoso en el desempeño deportivo",
@@ -95,9 +131,9 @@ def populate():
 	        add_product(c, p["prodName"], p["image_name"], p["descrip"], p["price"], p["stock"], p["availability"])
 	 
 	# Print out the categories we have added.
-	#for c in Category.objects.all():
-	#	for p in Product.objects.filter(category=c):
-	#		print("- {0} - {1}".format(str(c), str(p)))
+	for c in Category.objects.all():
+		for p in Product.objects.filter(category=c):
+			print("- {0} - {1}".format(str(c), str(p)))
 
 def add_product(cat, prodName, image_name, description, price, stock, availability):
 	p = Product.objects.get_or_create(category=cat, prodName=prodName, description = description , price=price, stock = stock, availability = availability)[0]

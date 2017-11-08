@@ -31,7 +31,6 @@ body{
 .row{
     background-color: #e6e6e6;
     height: 60px;
-    display: flex;
     font-size: 16px;
 }
 header{
@@ -58,6 +57,7 @@ header{
     direction: rtl;
     transition: background-color .3s;
     cursor: pointer;
+    float: right;
 }
 
 .nav_der:hover{
@@ -198,6 +198,7 @@ header{
     float: left;
     display: flex;
     margin-left: 10px;
+    margin-right: auto;
     width: 10.8%;
     height: 60px;
 }

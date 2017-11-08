@@ -22,10 +22,10 @@ from shop import views
 urlpatterns = [
 	url(r'^$', views.index, name="index"),
 	url(r'^shop/', include('shop.urls')),
-    url(r'^base/', include('shop.urls')),
+    url(r'^base/', views.base, name="base"),
     url(r'^admin/', admin.site.urls),
 ]
 urlpatterns += static(settings.STATIC_URL,\
-document_root=settings.STATIC_ROOT)
+    document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL,\
-document_root=settings.MEDIA_ROOT)
+    document_root=settings.MEDIA_ROOT)

@@ -1,4 +1,4 @@
-{ % load staticfiles %}
+{% load staticfiles %}
 
 <!DOCTYPE html>
 
@@ -6,34 +6,39 @@
 <head>
 	<meta charset="UTF-8">
     <title>YouBook - {% block title %}{% endblock %}</title>
-    {% block css %}
-	<link rel="stylesheet" type="text/css" href='{% static "css/styles.css" %}'/>
-	{% endblock css%}
-    <link rel="icon" type="image/png" href='{% static "images/loginicon.png" %}' />
+	<link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}"/>
+    <link rel="icon" type="image/png" href="{% static "images/loginicon.png" %}" />
 </head>
 
 <body>
-	<header>
+	<header class="row">
 	{% block header %}
 		<div class="logo">
 			<a href="index.php">
-				<img src="../images/logo.png" alt ="logo">
+				<img src="{% static "images/logo.png" %}" alt ="logo">
 			</a>
 		</div>
 		<a href="index.php" class="nav_der">
 			<h2 class ="title-nav">Inicio</h2>
-			<img src="../images/home.png" alt = "home">
+			<img src="{% static "images/home.png" %}" alt = "home">
 		</a>
-		<a class="nav_der" href="login.php">
-			<h2 class="title-nav">Login</h2>
-			<img src="../images/avatar.png" alt = "avatar">
-		</a>		
 		<a href="carrito.php" class="nav_der">
 			<h2 class ="title-nav">Carrito</h2>
-			<img src="../images/carrito.png" alt ="carrito">
+			<img src="{% static "images/carrito.png" %}" alt ="carrito">
 		</a>
 	{% endblock header%}
 	</header>
-    {% block main %}{% endblock %}
+	<footer>
+	{% block footer %}
+		<div>
+			<img src="{% static "images/instagram.png" %}" alt= "instagram">
+			<img src="{% static "images/twitter.png" %}"    alt= "twitter">
+			<img src="{% static "images/facebook.png" %}"  alt= "facebook">
+		</div>
+		<p>2017 © Todos los derechos reservados.Condiciones Generales de Uso - Política de confidencialidad - Condiciones Generales de Venta - Menciones Legales -</p>
+		<img src="{% static "images/logo.png" %}" class="footer_logo" alt = "footer_logo">
+	{% endblock footer %}
+	</footer>
+    {% block main %}{% endblock main %}
 </body>
 </html>

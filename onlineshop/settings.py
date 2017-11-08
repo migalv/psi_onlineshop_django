@@ -28,7 +28,6 @@ DEBUG = True
 ALLOWED_HOSTS = [u'calm-dusk-79670.herokuapp.com', u'127.0.0.1']
 
 STATIC_PATH = os.path.join(BASE_DIR, 'static')
-
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticHeroku')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

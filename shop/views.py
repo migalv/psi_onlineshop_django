@@ -20,3 +20,12 @@ def index(request):
 
 def base(request):
 	return render(request, 'shop/base.html')
+
+def product_list(request, catSlug=None):
+	
+	#Your code goes here
+	#queries that fill, category, categories and products
+	return render(request,'shop/list.html',
+				{'category': category,
+				'categories': categories,
+				'products': products})

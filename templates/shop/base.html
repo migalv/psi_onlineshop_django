@@ -1,0 +1,39 @@
+{ % load staticfiles %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>YouBook - {% block title %}{% endblock %}</title>
+    {% block css %}
+	<link rel="stylesheet" type="text/css" href='{% static "css/styles.css" %}'/>
+	{% endblock css%}
+    <link rel="icon" type="image/png" href='{% static "images/loginicon.png" %}' />
+</head>
+
+<body>
+	<header>
+	{% block header %}
+		<div class="logo">
+			<a href="index.php">
+				<img src="../images/logo.png" alt ="logo">
+			</a>
+		</div>
+		<a href="index.php" class="nav_der">
+			<h2 class ="title-nav">Inicio</h2>
+			<img src="../images/home.png" alt = "home">
+		</a>
+		<a class="nav_der" href="login.php">
+			<h2 class="title-nav">Login</h2>
+			<img src="../images/avatar.png" alt = "avatar">
+		</a>		
+		<a href="carrito.php" class="nav_der">
+			<h2 class ="title-nav">Carrito</h2>
+			<img src="../images/carrito.png" alt ="carrito">
+		</a>
+	{% endblock header%}
+	</header>
+    {% block main %}{% endblock %}
+</body>
+</html>

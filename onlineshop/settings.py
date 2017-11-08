@@ -27,12 +27,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = [u'calm-dusk-79670.herokuapp.com', u'127.0.0.1']
 
+STATIC_PATH = os.path.join(BASE_DIR, 'static')
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticHeroku')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'images/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    STATIC_PATH,
 )
 
 # Application definition
@@ -89,7 +92,7 @@ if os.getenv('SQLITE',False):
 	}
 else:
 	import dj_database_url
-	DATABASES['default']= dj_database_url.config(default='postgres://alumnodb:alumnodb@localhost:5432/onlineshop')
+	DATABASES['default']= dj_database_url.config(default='postgres://alumnodb:alumnodb@localhost:5432/psi1')
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -122,9 +125,3 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
-
-STATIC_URL = '/static/'

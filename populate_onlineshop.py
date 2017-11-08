@@ -161,7 +161,7 @@ def add_product(cat, prodName, image_name, description, price, stock, availabili
 		p = Product.objects.create(category=cat, prodName=prodName, 
 			description = description , price=price, 
 			stock = stock, availability = availability)
-		imageObject = File(open(os.path.join('images', image_name),'r'))
+		imageObject = File(open(os.path.join('media/images', image_name),'r'))
 		p.image.save(image_name, imageObject, save = True)
 		p.save()
 

@@ -18,5 +18,5 @@ def index(request):
 
     return render(request, 'shop/index.html', context_dict)
 
-def about(request):
-    return HttpResponse('Link: <a href="/shop/">index</a>')
+def base(request):
+	return render(request, 'shop/base.html')

@@ -6,8 +6,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from shop.models import Category, Product
 
-	
-
 def index(request):
 	# Construct a dictionary to pass to the template engine as its context.
 	# Note the key boldmessage is the same as {{ boldmessage }} in the template!
@@ -24,16 +22,19 @@ def base(request):
 
 def product_list(request, catSlug=None):
 
-	try:
+	if catSlug == None:
 		categories = Category.objects.all()
 		products = Product.objects.all()
 		category = None
-	except Category.DoesNotExists:
-		category = Category.objects.get(catSlug=catSlug)
+	else:
 		try:
-			products = Product.objects.filter(category=category)
+			category = Category.objects.filter(catSlug=catSlug)
+			products = Product.objects.get(category=category)
 		except Category.DoesNotExists:
-	
+			categories = Category.objects.all()
+			products = Product.objects.all()
+			category = None
+			
 	return render(request,'shop/list.html',
 					{'category': category,
 					'categories': categories,

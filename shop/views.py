@@ -44,6 +44,8 @@ def detailProduct(request, prodId, prodSlug):
 	
 	product = {'category': category.catName, }
 
-	#Your code goes here
-	#query that returns a product with id=protId	
+	try:
+		product = Product.objects.get(prod)
+	except :
+
 	return render(request, 'shop/detail.html', {'product': product})

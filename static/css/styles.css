@@ -592,13 +592,9 @@ div.img_banner{
     align-content: flex-start;
 }
 .titulo{ /* Ultimas peliculas */
-    display: flex;
     height: 60px;
     width: 100%;
-}
-.titulo h1{
-    margin: 25px 0 0 35px;
-    width: 300px;
+    margin: 85px 0 0 100px;
     font-family: "Arial", "trebuchet MS", "Tahoma";
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }

@@ -45,7 +45,8 @@ def detailProduct(request, prodId, prodSlug):
 	product = {'category': category.catName, }
 
 	try:
-		product = Product.objects.get(prod)
-	except :
+		product = Product.objects.get(id=prodId, prodSlug=prodSlug)
+	except Product.DoesNotExists:
+		product = None
 
 	return render(request, 'shop/detail.html', {'product': product})

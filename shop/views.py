@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-
+from django.conf import settings
 from django.http import HttpResponse
 from shop.models import Category, Product
 
@@ -22,31 +22,31 @@ def base(request):
 
 def product_list(request, catSlug=None):
 
-	if catSlug == None:
-		categories = Category.objects.all()
+	if catSlug is None:
 		products = Product.objects.all()
 		category = None
 	else:
 		try:
-			category = Category.objects.filter(catSlug=catSlug)
-			products = Product.objects.get(category=category)
+			category = Category.objects.get(catSlug=catSlug)
+			products = Product.objects.filter(category=category)
 		except Category.DoesNotExists:
-			categories = Category.objects.all()
 			products = Product.objects.all()
 			category = None
-			
+	
+	categories = Category.objects.all()
+
 	return render(request,'shop/list.html',
 					{'category': category,
 					'categories': categories,
-					'products': products})
+					'products': products,
+					'media_url': settings.MEDIA_URL})
 
-def detailProduct(request, prodId, prodSlug):
+def detailProduct(request, id, prodSlug):
 	
-	product = {'category': category.catName, }
-
 	try:
-		product = Product.objects.get(id=prodId, prodSlug=prodSlug)
+		product = Product.objects.get(id=id, prodSlug=prodSlug)
 	except Product.DoesNotExists:
 		product = None
 
-	return render(request, 'shop/detail.html', {'product': product})
+	return render(request, 'shop/detail.html', {'product': product,
+												'media_url': settings.MEDIA_URL})

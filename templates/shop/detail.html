@@ -1,0 +1,46 @@
+{% extends 'shop/base.html' %}
+
+{% block contenido %}
+
+{% load staticfiles %}
+
+<div class = "contenidopelicula">
+	<div id="rectangle-banner">
+
+		<img src="{{ media_url }}{{ product.image }}" alt="banner" id="banner-imagen">
+			<img src= "{{ media_url }}{{ product.image }}" alt="icon" id="rectangle-icon">
+		<p id="titulo-pelicula">{{ product.prodName }}</p>
+	</div>
+	<div class = "info">
+		<div id="div-precio">
+			<h2 class = "precio">{{ product.price }} €</h2>
+		</div>
+		<div id="div-inferior">
+			<div id="div-detalles">
+				<div class = "detalles">
+					<div class = "text1">In Stock:</div>
+					<div class = "text2">{{ product.stock }}</div>
+					<div class = "text1">Availability:</div>
+					<div class = "text2">{{ product.availability }}</div>
+					<div class = "text1">Category:</div>
+					<div class = "text2">{{ product.category }}</div>
+				</div>
+				<div id="div-botones">       	                   
+					<a class = "button-carrito" href = "#carrito">
+						<img class="img-botones" src="{% static "images/carrito.png" %}" alt="carrito">
+						Añadir a carrito
+					</a>
+				</div>
+			</div>
+			<div id="div-sinopsis">
+				<div id="rectangle-sinopsis">
+					Detalles de la pelicula
+				</div>
+				<div class = "sinopsis">
+					<p>{{ product.description }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock contenido %}

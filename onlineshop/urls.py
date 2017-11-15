@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from shop import views
 
 urlpatterns = [
-	url(r'^$', views.index, name="index"),
+	url(r'^$', views.product_list, name="index"),
 	url(r'^shop/', include('shop.urls')),
     url(r'^base/', views.base, name="base"),
     url(r'^admin/', admin.site.urls),

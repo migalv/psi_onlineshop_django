@@ -14,15 +14,15 @@
 	<header class="row">
 	{% block header %}
 		<div class="logo">
-			<a href="index.php">
+			<a href="{% url 'index' %}">
 				<img src="{% static "images/logo.png" %}" alt ="logo">
 			</a>
 		</div>
-		<a href="index.php" class="nav_der">
+		<a href="{% url 'index' %}" class="nav_der">
 			<h2 class ="title-nav">Inicio</h2>
 			<img src="{% static "images/home.png" %}" alt = "home">
 		</a>
-		<a href="carrito.php" class="nav_der">
+		<a href="#carrito" class="nav_der">
 			<h2 class ="title-nav">Carrito</h2>
 			<img src="{% static "images/carrito.png" %}" alt ="carrito">
 		</a>

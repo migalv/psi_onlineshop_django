@@ -2,15 +2,24 @@
 
 {% block contenido %}
 
-<div class="peliculas">
-		<h1 class="titulo">Todos los libros</h1>
+{% load staticfiles %}
 
+<div class="peliculas">
+		
+	{% if category %}
+	<h1 class="titulo">Categoria: {{ category.catName }}</h1>
+
+	{% else %}
+	<h1 class="titulo">Todas las Categorias</h1>
+	{% endif %}
+	{% for product in products %}
 	<div class="pelicula">
-		<a href="#">
-			<img src= "#" alt ="pelicula">
-			<p>Titulo pelicula</p>
+		<a href="/shop/{{ product.id }}/{{ product.prodSlug }}">
+			<img src= "{{ media_url }}{{ product.image }}" alt ="{{ product.prodSlug }}">
+			<p>{{ product.prodName }}</p>
 		</a>
 	</div>
+    {% endfor %}
 <div>
 
 {% endblock contenido %}

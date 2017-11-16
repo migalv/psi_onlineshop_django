@@ -30,7 +30,7 @@ def product_list(request, catSlug=None):
 			category = Category.objects.get(catSlug=catSlug)
 			products = Product.objects.filter(category=category)
 		except Category.DoesNotExists:
-			products = Product.objects.all()
+			products = None
 			category = None
 	
 	categories = Category.objects.all()

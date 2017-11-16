@@ -1,8 +1,23 @@
 {% extends 'shop/base.html' %}
 
-{% block contenido %}
-
 {% load staticfiles %}
+
+{% block menu %} <!-- Side bar menu -->
+
+<div class="dropdown_profile">
+	<button class="dropbtn_profile"><h2 class ="title-nav">Categorias</h2>
+	<img src="{% static "images/menu.png" %}" alt = "avatar">
+	</button>
+	<div class="dropdown-content_profile">
+	    {% for cat in categories %}
+		<a href="/shop/{{ cat.catSlug }}"> {{ cat.catName }}</a>
+	    {% endfor %}
+  	</div>
+</div>
+
+{% endblock menu %}
+
+{% block contenido %}
 
 <div class="peliculas">
 		

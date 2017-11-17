@@ -93,7 +93,7 @@ def populate():
 	 
 	history_books = [
 	     {"prodName": "Los pacientes del doctor Garcia",
-	      "image_name":"ElJuegoInterior.jpg",
+	      "image_name":"pacientes.jpg",
 	      "descrip":"No",
 	      "price":6.64,
 	      "stock":85,

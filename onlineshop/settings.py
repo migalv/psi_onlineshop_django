@@ -91,7 +91,7 @@ if os.getenv('SQLITE',False):
 	}
 else:
 	import dj_database_url
-	DATABASES['default']= dj_database_url.config(default='postgres://alumnodb:alumnodb@localhost:5432/psi1')
+	DATABASES['default']= dj_database_url.config(default='postgres://alumnodb:alumnodb@localhost:5432/onlineshop')
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators

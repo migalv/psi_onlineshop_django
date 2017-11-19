@@ -82,6 +82,7 @@ header{
     display: inline-block;
     direction: rtl;
     position: relative;
+    float: left;
 }
 .dropdown_profile img{
     margin: auto 0 auto 7px;
@@ -590,6 +591,13 @@ div.img_banner{
     flex-wrap: wrap;
     height: 100%;
     align-content: flex-start;
+    margin: 40px auto 60px auto;
+}
+
+@-moz-document url-prefix() {
+    .peliculas{
+        margin: 60px auto 0px auto;
+    }
 }
 .titulo{ /* Ultimas peliculas */
     height: 60px;

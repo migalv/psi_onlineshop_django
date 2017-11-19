@@ -28,7 +28,7 @@ def product_list(request, catSlug=None):
 		try:
 			category = Category.objects.get(catSlug=catSlug)
 			products = Product.objects.filter(category=category)
-		except Category.DoesNotExists:
+		except Category.DoesNotExist:
 			products = None
 			category = None
 	

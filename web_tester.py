@@ -15,33 +15,33 @@ from loremipsum import get_paragraphs, get_sentences
 class onLineShopTester(unittest.TestCase):
     username    = "alumnodb"
     passwd      = "alumnodb"
-    #base_url    = "https://rocky-inlet-76734.herokuapp.com/"
-    base_url     = "http://127.0.0.1:8000/"
+    base_url    = "https://calm-dusk-79670.herokuapp.com/"
+    #base_url     = "http://127.0.0.1:8000/"
     admin_url    = base_url + "admin/"
     addCategoryPath = "shop/category/add/"
     addProductPath  = "shop/product/add/"
-    catList     = ["Angels", "Butterflies", "Kokopelli"]
-    productDict = {catList[0]: ["angel-tattoo-art",
-                 "black-angel-tattoo",
-                 "male-angel-tattoo",
-                 "angel-tattoo-design-3",
-                 "cute-angel-design",
-                 "praying-angel-tattoo"],
-                   catList[1]: ["butterflies-tattoos",
-                 "butterfly-swirls-tattoo",
-                 "purple-butterfly-tattoo",
-                 "butterfly-stars-tat",
-                 "butterfly-tattoo-3",
-                 "yellow-butterfly-tattoo"],
-                  catList[2]: ["dancing-kokopelli",
-                 "kokopelli-dancing",
-                 "kokopelli",
-                 "kokopelli-music",
-                 "kokopelli-tattoo-5",
-                 "kokopelli-tattoo-design"]
+    catList     = ["Comics", "Sports", "History"]
+    productDict = {catList[0]: ["DragonBall_01",
+                 "EnciclopediaMarioBros",
+                 "planeta_hulk",
+                 "legend_zelda",
+                 "civil_war",
+                 "Pokemon17"],
+                   catList[1]: ["ElJuegoInterior",
+                 "calderon",
+                 "gimnasio_titan",
+                 "ciclismo_rendimiento",
+                 "reiki",
+                 "runners"],
+                  catList[2]: ["pacientes",
+                 "guarida_raposo",
+                 "postguerra",
+                 "dinosaurios",
+                 "lasdrogas",
+                 "victorias"]
                 }
     chromeDriver = "/usr/local/bin/chromedriver"
-    imagesPath = "/home/roberto/Docencia/PSI/psi_2017-18/Assigns/assign3/onLineShop/static/"
+    imagesPath = "/home/migalv/media/images"
 
     def setUp(self):
 #        self.driver = webdriver.Firefox()

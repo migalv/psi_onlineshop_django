@@ -1,5 +1,5 @@
 import os
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'onLineShop.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'onlineshop.settings')
 
 import django
 django.setup()

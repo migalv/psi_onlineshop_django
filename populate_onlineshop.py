@@ -85,7 +85,7 @@ def populate():
 	      "price":19.00,
 	      "stock":25,
 	      "availability":True,},
-	      {"prodName": "Runners superacion deportiva ",
+	      {"prodName": "Runners superacion deportiva",
 	      "image_name":"runners.jpg",
 	      "descrip":"El running no es una disciplina que involucre solamente las pistas o competencias, son muchos los aspectos que se deben considerar para ser verdaderamente exitosos en este deporte. A continuacion desarrollaremos diferentes topicos que buscan brindarte las herramientas para que seas exitoso en el desempeño deportivo",
 	      "price":2.99,

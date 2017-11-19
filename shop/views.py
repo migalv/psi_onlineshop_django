@@ -6,10 +6,14 @@ from django.conf import settings
 from django.http import HttpResponse
 from shop.models import Category, Product
 
-#Template base.
+#Funcion para la template base. Muestra la pagina "base.html".
+#Autor: Miguel Alvarez.
 def base(request):
 	return render(request, 'shop/base.html')
 
+
+#Funcion para mostrar el listado de productos totales o filtrados por una categoria.
+#Autor: Miguel Alvarez.
 def product_list(request, catSlug=None):
 
 	#Si "catSlug = None", es decir, no se esta filtrando por ninguna categoria,
@@ -36,9 +40,13 @@ def product_list(request, catSlug=None):
 					'products': products,
 					'media_url': settings.MEDIA_URL})
 
+
+#Funcion para mostrar los detalles de un producto.
+#Autor: Miguel Alvarez.					
 def detailProduct(request, id, prodSlug):
 	
-	#Se pasa a detail.html el producto buscado para mostrar su informacion, controlando la posibilidad de que no exista.
+	#Se pasa a detail.html el producto con el id y el prodSlug dados, para mostrar su informacion,
+	#controlando la posibilidad de que no exista.
 	
 	try:
 		product = Product.objects.get(id=id, prodSlug=prodSlug)

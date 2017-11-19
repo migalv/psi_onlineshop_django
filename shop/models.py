@@ -7,17 +7,21 @@ from django.utils import timezone
 from django.template.defaultfilters import slugify
 
 #Modelo para las categorias.
+#Autor: Felix Coto
 class Category(models.Model):
 	#campos del modelo a definir
 	catName = models.CharField(max_length=128, unique=True, null=False)
 	catSlug = models.SlugField(null=False,unique=True)
 
 	def save(self, *args, **kwargs):
-		self.catSlug = slugify(self.catName) #para generar el campo dado de forma automatica
+		self.catSlug = slugify(self.catName) #para que el campo catSlug se genere de forma automática a partir de catName
 		super(Category, self).save(*args, **kwargs)
 
+	#Si no se pone esta clase, el plural de category saldría como categorys por defecto.
+	#En "verbose_name_plural" se pone el nombre que se desea que tenga.
+	
 	class Meta:
-		verbose_name_plural = 'Categories'
+		verbose_name_plural = 'Categories' 
 
 	def __str__(self):  # For Python 2, use __unicode__ too
 		return self.catName
@@ -27,6 +31,7 @@ class Category(models.Model):
 
 		
 #Modelo para los productos.
+#Autor: Felix Coto
 class Product(models.Model):
 	#campos del modelo a definir
 	category = models.ForeignKey(Category, null = False)

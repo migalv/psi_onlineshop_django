@@ -8,7 +8,12 @@ django.setup()
 from shop.models import Category, Product
 from django.core.files import File
 
+#Funcion para generar unos productos y categorias determinados de prueba, para probar sobre ellos distintas consultas.
+#Autor: Felix Coto
 def populate():
+	
+	
+	#Nombres de las categorias y productos a crear
 	
 	catName1 = "ofertas"
 	catName2 = "gangas"
@@ -20,7 +25,8 @@ def populate():
 	prodName6 = "ganga 3"
 	
 	
-	# Si no existen las categorias ofertas o gangas, se crean y se les añaden 3 productos nuevos
+	# Si no existen las categorias "ofertas" o "gangas", se crean y se les añaden 3 productos nuevos, 
+	# "oferta 1, oferta 2, oferta 3" y "ganga 1, ganga 2, ganga 3",respectivamente.
 	
 	if not Category.objects.filter(catName=catName1).exists():
 		c1 = Category.objects.create(catName=catName1)
@@ -33,7 +39,7 @@ def populate():
 		Product.objects.create(category = c2, prodName = prodName5, image = "reiki.jpg", description = "desc5" , price = "15.00", stock = "5", availability = "True")
 		Product.objects.create(category = c2, prodName = prodName6, image = "runners.jpg", description = "desc6" , price = "16.00", stock = "6", availability = "False")
 	
-	# Se obtiene la categoria gangas, y despues todos los productos asociados a ella
+	# Se obtiene la categoria gangas, y despues todos los productos asociados a ella, para mostrarlos por pantalla.
 	
 	c3 = Category.objects.get(catName = catName2)
 	query = Product.objects.filter(category = c3)
@@ -51,7 +57,6 @@ def populate():
 		print "CatSlug:" + cSlug
 	except Product.DoesNotExist:
 		print "producto'" + key + "'inexistente"
-	
 
 	# Se busca el producto con prodSlug = "oferta-10", para saber a que categoria pertenece.
 	#Si dicho producto no existe se informa de ello por pantalla.
@@ -64,7 +69,6 @@ def populate():
 		print "CatSlug:" + cSlug
 	except Product.DoesNotExist:
 		print "producto'" + key + "'inexistente"
-
 
 if __name__ == '__main__':
 	print("Starting Rango population script...")

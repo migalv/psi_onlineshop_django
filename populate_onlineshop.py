@@ -8,6 +8,8 @@ django.setup()
 from shop.models import Category, Product
 from django.core.files import File
 
+#Funcion que añade los productos y categorías deseados a la aplicacion.
+#Autor: Miguel Alvarez
 def populate():
 
 	# Se crean listas de dicccionarios que contienen los datos a generar,
@@ -151,6 +153,7 @@ def populate():
 
 	
 # Se crea un nuevo producto en caso de que no exista otro con el mismo nombre.
+# Autor: Miguel Alvarez
 def add_product(cat, prodName, image_name, description, price, stock, availability):
 	print prodName
 	try:
@@ -167,6 +170,7 @@ def add_product(cat, prodName, image_name, description, price, stock, availabili
 
 	
 # Se crea una nueva categoria en caso de que no exista otra con el mismo nombre.
+# Autor: Miguel Alvarez
 def add_cat(name):
 	c = Category.objects.get_or_create(catName=name)[0]
 	c.save()

@@ -53,7 +53,7 @@ def populate():
 		print "producto'" + key + "'inexistente"
 	
 
-	# Se busca el producto con prodSlug = "oferta-1", para saber a que categoria pertenece.
+	# Se busca el producto con prodSlug = "oferta-10", para saber a que categoria pertenece.
 	#Si dicho producto no existe se informa de ello por pantalla.
 	
 	key = "oferta_10"

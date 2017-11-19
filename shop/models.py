@@ -8,11 +8,12 @@ from django.template.defaultfilters import slugify
 
 #Modelo para las categorias.
 class Category(models.Model):
+	#campos del modelo a definir
 	catName = models.CharField(max_length=128, unique=True, null=False)
 	catSlug = models.SlugField(null=False,unique=True)
 
 	def save(self, *args, **kwargs):
-		self.catSlug = slugify(self.catName)
+		self.catSlug = slugify(self.catName) #para generar el campo dado de forma automatica
 		super(Category, self).save(*args, **kwargs)
 
 	class Meta:
@@ -27,6 +28,7 @@ class Category(models.Model):
 		
 #Modelo para los productos.
 class Product(models.Model):
+	#campos del modelo a definir
 	category = models.ForeignKey(Category, null = False)
 	prodName = models.CharField( unique=True, null=False,max_length=128)
 	prodSlug = models.SlugField(null=False,unique=True)
@@ -39,7 +41,7 @@ class Product(models.Model):
 	updated = models.DateTimeField(default=timezone.now)
 
 	def save(self, *args, **kwargs):
-		self.prodSlug = slugify(self.prodName)
+		self.prodSlug = slugify(self.prodName) #para generar el campo dado de forma automatica
 		super(Product, self).save(*args, **kwargs)
 
 	def __str__(self):  # For Python 2, use __unicode__ too

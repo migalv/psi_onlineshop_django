@@ -46,7 +46,7 @@ class Product(models.Model):
 	updated = models.DateTimeField(default=timezone.now)
 
 	def save(self, *args, **kwargs):
-		self.prodSlug = slugify(self.prodName) #para generar el campo dado de forma automatica
+		self.prodSlug = slugify(self.prodName) #para que el campo prodSlug se genere de forma automática a partir de prodName
 		super(Product, self).save(*args, **kwargs)
 
 	def __str__(self):  # For Python 2, use __unicode__ too

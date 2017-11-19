@@ -6,15 +6,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Variable que contiene el path de las templates
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
-#Key secreta
+# Key secreta
 SECRET_KEY = '&g@r$9!9ru&-groxx+*2ae#i7(h319#y!u^*!ws+ujewbokqlj'
 
 DEBUG = True
 
-#Para permitir el uso de heroku
+# Para permitir el uso de heroku
 ALLOWED_HOSTS = [u'calm-dusk-79670.herokuapp.com', u'127.0.0.1']
 
-#Variables globales de Django que sirven para localizar ficheros static y media
+# Variables globales de Django que sirven para localizar ficheros static y media
 STATIC_PATH = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticHeroku')
@@ -49,7 +49,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'onlineshop.urls'
 
-#Templates
+# Templates
 
 TEMPLATES = [
     {
@@ -67,6 +67,7 @@ TEMPLATES = [
     },
 ]
 
+# Aplicacion wsgi
 WSGI_APPLICATION = 'onlineshop.wsgi.application'
 
 

@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-# Register your models here.
+
 from django.contrib import admin
 from shop.models import Category, Product
+
+#Registro de todos los modelos a implementar.
 
 class CategoryAdmin(admin.ModelAdmin):
 	prepopulated_fields = {'catSlug':('catName',)}

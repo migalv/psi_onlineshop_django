@@ -17,14 +17,20 @@ def index(request):
 
 	return render(request, 'shop/index.html', context_dict)
 
+#Template basica.
 def base(request):
 	return render(request, 'shop/base.html')
 
 def product_list(request, catSlug=None):
 
+	#Si "catSlug = None", es decir, no se esta filtrando por ninguna categoria,
+	#se pasan todos los productos a list.html para mostrarlos.
+	
 	if catSlug is None:
 		products = Product.objects.all()
 		category = None
+		
+	#En caso contrario, se pasan solo los productos que pertenecen a la categoria con el catSlug dado.
 	else:
 		try:
 			category = Category.objects.get(catSlug=catSlug)
@@ -42,6 +48,8 @@ def product_list(request, catSlug=None):
 					'media_url': settings.MEDIA_URL})
 
 def detailProduct(request, id, prodSlug):
+	
+	#Se pasa a detail.html el producto buscado, controlando la posibilidad de que no exista.
 	
 	try:
 		product = Product.objects.get(id=id, prodSlug=prodSlug)

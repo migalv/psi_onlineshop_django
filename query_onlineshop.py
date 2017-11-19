@@ -19,6 +19,9 @@ def populate():
 	prodName5 = "ganga 2"
 	prodName6 = "ganga 3"
 	
+	
+	# Si no existen las categorias ofertas o gangas, se crean y se les añaden 3 productos nuevos
+	
 	if not Category.objects.filter(catName=catName1).exists():
 		c1 = Category.objects.create(catName=catName1)
 		Product.objects.create(category = c1, prodName = prodName1, image = "DragonBall_01.jpg", description = "desc1" , price = "10.00", stock = "1", availability = "True")
@@ -30,11 +33,15 @@ def populate():
 		Product.objects.create(category = c2, prodName = prodName5, image = "reiki.jpg", description = "desc5" , price = "15.00", stock = "5", availability = "True")
 		Product.objects.create(category = c2, prodName = prodName6, image = "runners.jpg", description = "desc6" , price = "16.00", stock = "6", availability = "False")
 	
-
+	# Se obtiene la categoria gangas, y despues todos los productos asociados a ella
+	
 	c3 = Category.objects.get(catName = catName2)
-
 	query = Product.objects.filter(category = c3)
 	print query
+	
+	
+	# Se busca el producto con prodSlug = "oferta-1", para saber a que categoria pertenece.
+	#Si dicho producto no existe se informa de ello por pantalla.
 	
 	key = "oferta-1"
 	try:
@@ -45,6 +52,9 @@ def populate():
 	except Product.DoesNotExist:
 		print "producto'" + key + "'inexistente"
 	
+
+	# Se busca el producto con prodSlug = "oferta-1", para saber a que categoria pertenece.
+	#Si dicho producto no existe se informa de ello por pantalla.
 	
 	key = "oferta_10"
 	try:

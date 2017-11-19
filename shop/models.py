@@ -6,7 +6,7 @@ from datetime import datetime
 from django.utils import timezone
 from django.template.defaultfilters import slugify
 
-# Create your models here.
+#Modelo para las categorias.
 class Category(models.Model):
 	catName = models.CharField(max_length=128, unique=True, null=False)
 	catSlug = models.SlugField(null=False,unique=True)
@@ -24,6 +24,8 @@ class Category(models.Model):
 	def __unicode__(self):
 		return self.catName
 
+		
+#Modelo para los productos.
 class Product(models.Model):
 	category = models.ForeignKey(Category, null = False)
 	prodName = models.CharField( unique=True, null=False,max_length=128)

@@ -49,7 +49,7 @@ def product_list(request, catSlug=None):
 
 def detailProduct(request, id, prodSlug):
 	
-	#Se pasa a detail.html el producto buscado, controlando la posibilidad de que no exista.
+	#Se pasa a detail.html el producto buscado para mostrar su informacion, controlando la posibilidad de que no exista.
 	
 	try:
 		product = Product.objects.get(id=id, prodSlug=prodSlug)
